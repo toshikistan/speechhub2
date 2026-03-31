@@ -1,0 +1,7 @@
+{% extends 'main/base.html' %}
+{% block content %}
+<h2>{{ product.title }}</h2>
+<p>{{ product.description|linebreaks }}</p>
+<p><b>Цена: {{ product.price }} ₽</b></p>
+{% if user.is_authenticated %}<a href="{% url 'create_order' product.slug %}">Купить</a>{% endif %}
+{% endblock %}

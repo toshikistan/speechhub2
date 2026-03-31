@@ -1,0 +1,16 @@
+{% extends 'main/base.html' %}
+{% block content %}
+<h2>Платформа для логопедов: блог + маркетплейс + форум</h2>
+<section>
+  <h3>Свежие статьи</h3>
+  {% for p in posts %}<p><a href="{{ p.get_absolute_url }}">{{ p.title }}</a></p>{% empty %}<p>Пока нет статей.</p>{% endfor %}
+</section>
+<section>
+  <h3>Новые материалы</h3>
+  {% for p in products %}<p><a href="{{ p.get_absolute_url }}">{{ p.title }}</a> — {{ p.price }} ₽</p>{% empty %}<p>Пока нет материалов.</p>{% endfor %}
+</section>
+<section>
+  <h3>Последние темы форума</h3>
+  {% for t in topics %}<p><a href="{{ t.get_absolute_url }}">{{ t.title }}</a></p>{% empty %}<p>Пока нет тем.</p>{% endfor %}
+</section>
+{% endblock %}

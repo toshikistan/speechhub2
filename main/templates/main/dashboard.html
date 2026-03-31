@@ -1,0 +1,8 @@
+{% extends 'main/base.html' %}
+{% block content %}
+<h2>Личный кабинет</h2>
+<h3>Мои товары</h3>
+{% for p in products %}<p>{{ p.title }} — {{ p.get_status_display }}</p>{% empty %}<p>Товаров нет.</p>{% endfor %}
+<h3>Мои заказы</h3>
+{% for o in orders %}<p>#{{ o.id }}: {{ o.product.title }} — {{ o.get_status_display }}</p>{% empty %}<p>Заказов нет.</p>{% endfor %}
+{% endblock %}
