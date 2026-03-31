@@ -1,0 +1,12 @@
+{% extends 'main/base.html' %}
+{% block content %}
+<h2>Форум</h2>
+{% if user.is_authenticated %}<p><a href="{% url 'forum_topic_create' %}">+ Создать тему</a></p>{% endif %}
+{% for category in categories %}
+<section>
+  <h3>{{ category.name }}</h3>
+  <p>{{ category.description }}</p>
+  {% for t in category.topics.all %}<p><a href="{{ t.get_absolute_url }}">{{ t.title }}</a> — {{ t.author.username }}</p>{% empty %}<p>Тем пока нет.</p>{% endfor %}
+</section>
+{% empty %}<p>Категории форума пока не созданы (добавь через админку).</p>{% endfor %}
+{% endblock %}

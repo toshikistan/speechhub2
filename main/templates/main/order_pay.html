@@ -1,0 +1,14 @@
+{% extends 'main/base.html' %}
+{% block content %}
+<h2>Оплата заказа #{{ order.id }}</h2>
+<p>Сумма: <b>{{ order.total_amount }} ₽</b></p>
+<h3>Реквизиты (заглушка)</h3>
+<ul>
+<li>Получатель: {{ stub.recipient }}</li>
+<li>Банк: {{ stub.bank }}</li>
+<li>Счёт: {{ stub.account }}</li>
+<li>Карта: {{ stub.card }}</li>
+<li>СБП: {{ stub.phone }}</li>
+</ul>
+<form method="post" enctype="multipart/form-data">{% csrf_token %}{{ form.as_p }}<button>Я оплатил(а), отправить чек</button></form>
+{% endblock %}

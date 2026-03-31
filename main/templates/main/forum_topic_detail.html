@@ -1,0 +1,9 @@
+{% extends 'main/base.html' %}
+{% block content %}
+<h2>{{ topic.title }}</h2>
+<p>{{ topic.body|linebreaks }}</p>
+<hr />
+<h3>Ответы</h3>
+{% for p in topic.posts.all %}<p><b>{{ p.author.username }}</b>: {{ p.body }}</p>{% empty %}<p>Ответов пока нет.</p>{% endfor %}
+{% if user.is_authenticated %}<form method="post">{% csrf_token %}{{ form.as_p }}<button>Ответить</button></form>{% endif %}
+{% endblock %}

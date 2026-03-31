@@ -1,0 +1,8 @@
+body { font-family: Arial, sans-serif; margin: 0; background: #f8f9fb; color: #1d2433; }
+header { background: #263859; color: #fff; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; }
+header a { color: #fff; margin-right: 10px; text-decoration: none; }
+main { max-width: 900px; margin: 20px auto; padding: 0 16px; }
+article, section { background: #fff; border-radius: 8px; padding: 14px; margin-bottom: 12px; box-shadow: 0 1px 3px rgba(0,0,0,.08); }
+input, textarea, select { width: 100%; margin-bottom: 8px; padding: 8px; }
+button, .btn { background: #3d5af1; border: none; color: white; padding: 10px 14px; border-radius: 6px; cursor: pointer; }
+.msg { background: #e8f6e8; border: 1px solid #a5d6a7; padding: 8px; border-radius: 6px; }

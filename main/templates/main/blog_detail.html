@@ -1,0 +1,12 @@
+{% extends 'main/base.html' %}
+{% block content %}
+<article>
+  <h2>{{ post.title }}</h2>
+  <p>{{ post.content|linebreaks }}</p>
+</article>
+<h3>Комментарии</h3>
+{% for c in post.comments.all %}<p><b>{{ c.user.username }}</b>: {{ c.body }}</p>{% empty %}<p>Пока пусто.</p>{% endfor %}
+{% if user.is_authenticated %}
+<form method="post">{% csrf_token %}{{ form.as_p }}<button>Отправить</button></form>
+{% endif %}
+{% endblock %}
